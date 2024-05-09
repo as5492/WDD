@@ -1,0 +1,10 @@
+form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  input[type='submit'] {
+    background-color: #4CAF50;
+    padding: 10px;
+  }
+  
