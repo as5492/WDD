@@ -1,0 +1,13 @@
+/* External CSS */
+.container {
+    border: 2px solid #007bff;
+}
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+}
