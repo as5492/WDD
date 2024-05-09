@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <name>Parakh Tyagi</name>
+        <age>20</age>
+        <address>estancia</address>
+        <email>parakh@example.com</email>
+    </user>
+    <user>
+        <name>Abhishek</name>
+        <age>20</age>
+        <address>estancia</address>
+        <email>abhi@example.com</email>
+    </user>
+</users>
