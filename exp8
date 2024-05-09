@@ -1,0 +1,25 @@
+Running Simple JSP file from Apache Tomcat Webserver
+
+1. Create file with name user.html inside D:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\ROOT (change drive name if needed)
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JSP Demo</title>
+	</head>
+	<body>
+	<form action="welcome.jsp" method="get" > 
+		<p>Enter a Name:<input type="text" name="uname"/></p><br/> 
+		<input type="submit" value="Submit">
+	 </form>
+	</body>
+</html>
+
+2. Create a file with name welcome.jsp inside D:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\ROOT (change drive name if needed)
+
+<%
+	String user=request.getParameter("uname");
+        out.println("Hello "+user);
+%>
+
+3. Open browser and type the url localhost:8080/user.html 
