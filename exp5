@@ -1,0 +1,61 @@
+<!--Exp. No. 5 Design a dynamic web page with validation using AngularJS-->
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="validationApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Web Page with Validation using AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-controller="mainController">
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+        <label for="Username"> Name: </label>
+        <input type="text" name="username" ng-model="user.username" required>
+        <span class="error" ng-show="userForm.username.$dirty && userForm.username.$error.required">Username is required</span>
+        <br>
+        <label for="email"> Email: </label>
+        <input type="email" name="email" ng-model="user.email" required>
+        <span class="error" ng-show="userForm.email.$dirty && userForm.email.$error.required">Email is required</span>
+        <span class="error" ng-show="userForm.email.$dirty && userForm.email.$error.email">Invalid email address</span>
+        <br>
+        <label for="password"> Password: </label>
+        <input type="password" name="password" ng-model="user.password" required>
+        <span class="error" ng-show="userForm.password.$dirty && userForm.password.$error.required">Password is required</span>
+        <br>
+        <label for="confirmPassword"> Confirm Password: </label>
+        <input type="password" name="confirmPassword" ng-model="user.confirmPassword" required>
+        <span class="error" ng-show="userForm.confirmPassword.$dirty && userForm.confirmPassword.$error.required">Confirm Password is required</span>
+        <span class="error" ng-show="userForm.confirmPassword.$dirty && userForm.confirmPassword.$error.match">Passwords do not match</span>
+        <br>
+        <button type="submit" ng-disabled="userForm.$invalid">Submit</button>
+    </form>
+</div>
+
+<script>
+    var validationApp = angular.module('validationApp', []);
+
+    validationApp.controller('mainController', function($scope) {
+        $scope.submitForm = function() {
+            if ($scope.userForm.$valid) {
+                // Check if passwords match
+                if ($scope.user.password !== $scope.user.confirmPassword) {
+                    $scope.userForm.confirmPassword.$error.match = true;
+                    return;
+                }
+                // Form submission logic goes here
+                alert('Form submitted successfully!');
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
